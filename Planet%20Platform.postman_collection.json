@@ -1,0 +1,228 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Planet Platform",
+		"_postman_id": "4e85458e-53e1-fedc-4999-72578cdf3b4a",
+		"description": "The Planet Platform is a set of web-based tools that can be used to search Planet’s catalog of imagery, view examples and order full-resolution images.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Areas of Interest",
+			"description": "",
+			"item": [
+				{
+					"name": "Query Your AOIs",
+					"request": {
+						"url": "https://api.planet.com/v0/aois/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "    "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"description": "",
+			"item": [
+				{
+					"name": "Order 10 Visual Dove Scenes Intersecting with the Bay Bridge",
+					"request": {
+						"url": "https://api.planet.com/v0/orders/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"download\",\n  \"data\": {\n    \"products\": [\n      {\n        \"scene_name\": \"20160710_182139_0c78\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20160709_165401_1_0c73\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20160704_204348_0d05\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20160704_204236_0c41\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20160302_213716_0c68\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20160225_233138_1_0b07\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20160112_172833_0b0d\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20151022_193405_0c07\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20150830_000651_0b07\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      },\n      {\n        \"scene_name\": \"20150830_000650_0b07\",\n        \"product_type\": \"visual\",\n        \"provider\": \"ortho\"\n      }\n    ]\n  }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "View & Check Status of Orders",
+					"request": {
+						"url": "https://api.planet.com/v0/orders/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scenes",
+			"description": "",
+			"item": [
+				{
+					"name": "Query All Rapid Eye Scenes",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/rapideye/?order_by=acquired asc",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Query All Planet Dove Scenes",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/ortho/?order_by=acquired asc",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Query All Landsat 8 Scenes",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/landsat/?order_by=acquired asc",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Planet Dove Scenes from July 2016",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/ortho/?acquired.gte=2016-07-01&acquired.lte=2016-07-31&order_by=acquired asc",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Planet Dove Scenes with <= 20% Cloud Coverage",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/ortho/?order_by=acquired desc&cloud_cover.estimated.lte=20",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Sorted by most recent."
+					},
+					"response": []
+				},
+				{
+					"name": "Planet Dove Scenes Intersecting with SF",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/ortho/?order_by=acquired desc&intersects=POLYGON((-122.54768371582031 37.81813265673152,-122.33894348144531 37.81813265673152,-122.33894348144531 37.669359153119615,-122.54768371582031 37.669359153119615,-122.54768371582031 37.81813265673152))",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Using WKT. Sorted by most recent."
+					},
+					"response": []
+				},
+				{
+					"name": "Download Full Visual Dove Scene",
+					"request": {
+						"url": "https://api.planet.com/v0/scenes/ortho/20160710_182139_0c78/full?product=visual",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Run this request URL in your browser to download a scene."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
