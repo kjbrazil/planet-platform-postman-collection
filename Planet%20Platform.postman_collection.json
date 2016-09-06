@@ -2,14 +2,14 @@
 	"variables": [],
 	"info": {
 		"name": "Planet Platform",
-		"_postman_id": "4e85458e-53e1-fedc-4999-72578cdf3b4a",
+		"_postman_id": "e763068b-698b-8133-a528-42644f21b63f",
 		"description": "The Planet Platform is a set of web-based tools that can be used to search Planet’s catalog of imagery, view examples and order full-resolution images.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Areas of Interest",
-			"description": "",
+			"name": "Areas of Interest (v0)",
+			"description": "Users can upload and save an Area of Interest (AOI) using the Planet API so that it can be used to search for scenes (AOIs can also be used with workspaces).\n\nThe AOI API offers a RESTful interface for creating, listing, updating, and deleting AOIs programmatically.",
 			"item": [
 				{
 					"name": "Query Your AOIs",
@@ -34,8 +34,94 @@
 			]
 		},
 		{
-			"name": "Orders",
-			"description": "",
+			"name": "Catalog (v1)",
+			"description": "The Catalog API allows users to search through collections of image metadata and download individual images in one or more formats.\n\nThe Catalog API allows users to search through Planet’s imagery archive and access image data and download images in one or more formats, according to a user's plan.",
+			"item": [
+				{
+					"name": "All Items",
+					"request": {
+						"url": "https://api.planet.com/v1/catalogs/grid-utm-25km/items",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "All Items with < 20% Cloud Coverage",
+					"request": {
+						"url": "https://api.planet.com/v1/catalogs/grid-utm-25km/items?catalog::cloud_cover=[:0.2]",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "All Items for single Rapid Eye Scene (Item)",
+					"request": {
+						"url": "https://api.planet.com/v1/catalogs/grid-utm-25km/items/20160905_192750_1057724_RapidEye-5",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "All Assets for single Rapid Eye Scene (Item)",
+					"request": {
+						"url": "https://api.planet.com/v1/catalogs/grid-utm-25km/items/20160905_192750_1057724_RapidEye-5/assets/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "api-key {{api-key}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders (v0)",
+			"description": "An order contains a selection of up to 100 Planet scenes and their respective scene types. Once processed, these images can be downloaded as a single zip file.\n\nThe Orders API offers a RESTful interface for creating, listing, and downloading orders. A newly created order is automatically queued for processing. Once completed, the order's status is updated to completed.",
 			"item": [
 				{
 					"name": "Order 10 Visual Dove Scenes Intersecting with the Bay Bridge",
@@ -85,11 +171,11 @@
 			]
 		},
 		{
-			"name": "Scenes",
-			"description": "",
+			"name": "Scenes (v0)",
+			"description": "A \"Scene\" refers to a single image as taken by a satellite. The Scenes API offers REST API access to listing, searching, and downloading available Scene images and their associated metadata. There are three Scene types available through the API:\n\n* The PlanetScope API for Planet's Dove satellites uses Scene type ortho.\n* The RapidEye API uses Scene type rapideye.\n\nThe Planet Scenes API offers REST API access to listing, searching, and downloading available scenes and their associated metadata.",
 			"item": [
 				{
-					"name": "Query All Rapid Eye Scenes",
+					"name": "All Rapid Eye Scenes",
 					"request": {
 						"url": "https://api.planet.com/v0/scenes/rapideye/?order_by=acquired asc",
 						"method": "GET",
@@ -109,7 +195,7 @@
 					"response": []
 				},
 				{
-					"name": "Query All Planet Dove Scenes",
+					"name": "All Planet Dove Scenes",
 					"request": {
 						"url": "https://api.planet.com/v0/scenes/ortho/?order_by=acquired asc",
 						"method": "GET",
@@ -129,7 +215,7 @@
 					"response": []
 				},
 				{
-					"name": "Query All Landsat 8 Scenes",
+					"name": "All Landsat 8 Scenes",
 					"request": {
 						"url": "https://api.planet.com/v0/scenes/landsat/?order_by=acquired asc",
 						"method": "GET",

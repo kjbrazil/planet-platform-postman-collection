@@ -1,10 +1,11 @@
-# Planet Platform Postman Collection (v0)
+# Planet Platform Postman Collection (v0 & v1)
 
-A set of example HTTP requests for the v0 Planet APIs using Postman. These include:
+A set of example HTTP requests for the v0 and v1 Planet APIs using Postman. These include:
 
-* Scenes
-* Orders
-* Areas of Interest
+* Catalog (v1)
+* Scenes (v0)
+* Orders (v0)
+* Areas of Interest (v0)
 
 # Requirements
 
